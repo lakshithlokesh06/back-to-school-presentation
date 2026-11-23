@@ -1,0 +1,13 @@
+{
+  "name": "back-to-school-presentation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Editable scaffold for a three-slide Back to School communication skills presentation.",
+  "scripts": {
+    "build": "node presentation/generate.js",
+    "start": "npm run build"
+  },
+  "dependencies": {
+    "pptxgenjs": "file:/Users/lakshithlokesh/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pptxgenjs"
+  }
+}
