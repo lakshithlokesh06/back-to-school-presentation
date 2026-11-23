@@ -7,84 +7,19 @@ const pptx = createPresentation();
 function addOpening(data) {
   const slide = pptx.addSlide();
   addBase(slide, 1, "Opening · OBC");
-
-  // One composed illustration: a quiet classroom in the background, a desk
-  // and open notebook in the foreground, and a path that moves forward.
-  slide.addShape("roundRect", {
-    x: 8.22, y: 0.86, w: 4.38, h: 5.52,
-    rectRadius: 0.12,
-    fill: { color: theme.colors.surface },
-    line: { color: theme.colors.line, width: 0.8 },
-  });
-  slide.addShape("rect", {
-    x: 8.62, y: 1.22, w: 3.58, h: 2.35,
-    fill: { color: "E9EEF0" },
-    line: { color: "E9EEF0", transparency: 100 },
-  });
-  slide.addShape("rect", {
-    x: 8.91, y: 1.53, w: 2.96, h: 1.66,
-    fill: { color: "F7F4EE" },
-    line: { color: theme.colors.line, width: 0.8 },
-  });
-  // Simple board marks suggest a real lesson without adding more slide copy.
-  slide.addShape("line", {
-    x: 9.25, y: 2.03, w: 1.15, h: 0,
-    line: { color: theme.colors.accent, width: 2.4, beginArrowType: "none", endArrowType: "none" },
-  });
-  slide.addShape("line", {
-    x: 9.25, y: 2.42, w: 2.05, h: 0,
-    line: { color: "B9C4CA", width: 1.6 },
-  });
-  slide.addShape("line", {
-    x: 9.25, y: 2.72, w: 1.46, h: 0,
-    line: { color: "B9C4CA", width: 1.6 },
-  });
-  slide.addShape("rect", {
-    x: 8.62, y: 3.57, w: 3.58, h: 0.14,
-    fill: { color: theme.colors.accentSoft },
-    line: { color: theme.colors.accentSoft, transparency: 100 },
-  });
-  // The dotted path visually links the former classroom to the next step.
-  slide.addShape("line", {
-    x: 9.08, y: 4.31, w: 2.72, h: 0,
-    line: { color: theme.colors.accent, width: 2.2, dash: "dash", endArrowType: "triangle" },
-  });
-  slide.addShape("ellipse", {
-    x: 9.06, y: 4.2, w: 0.22, h: 0.22,
-    fill: { color: theme.colors.accent },
-    line: { color: theme.colors.accent, transparency: 100 },
-  });
-  // Desk and open notebook form the foreground focal point.
-  slide.addShape("line", {
-    x: 8.85, y: 5.62, w: 3.16, h: 0,
-    line: { color: theme.colors.ink, width: 3 },
-  });
-  slide.addShape("line", {
-    x: 9.14, y: 5.62, w: -0.22, h: 0.53,
-    line: { color: theme.colors.ink, width: 2.1 },
-  });
-  slide.addShape("line", {
-    x: 11.72, y: 5.62, w: 0.22, h: 0.53,
-    line: { color: theme.colors.ink, width: 2.1 },
-  });
-  slide.addShape("chevron", {
-    x: 9.75, y: 4.87, w: 0.76, h: 0.49,
-    rotate: 180,
-    fill: { color: theme.colors.accentSoft },
-    line: { color: theme.colors.accentSoft, transparency: 100 },
-  });
-  slide.addShape("chevron", {
-    x: 10.47, y: 4.87, w: 0.76, h: 0.49,
-    fill: { color: theme.colors.accentSoft },
-    line: { color: theme.colors.accentSoft, transparency: 100 },
-  });
-  slide.addShape("line", {
-    x: 10.48, y: 4.87, w: 0, h: 0.48,
-    line: { color: theme.colors.accent, width: 1.2 },
+  slide.addImage({
+    path: path.resolve(__dirname, "..", "assets", "slide1-student-classroom.png"),
+    x: 7.58,
+    y: 0.90,
+    w: 5.05,
+    h: 5.72,
+    sizing: { type: "cover", x: 7.58, y: 0.90, w: 5.05, h: 5.72 },
+    altText: "Student writing at a classroom desk and looking out toward the city",
+    shadow: { type: "outer", color: "172A3A", opacity: 0.12, blur: 5, offset: 2, angle: 45 },
   });
 
   slide.addText(data.title, {
-    x: theme.page.marginX, y: 1.38, w: 6.88, h: 2.55,
+    x: theme.page.marginX, y: 1.38, w: 6.45, h: 2.55,
     fontFace: theme.fonts.heading, fontSize: 35, bold: true,
     color: theme.colors.ink, breakLine: false, margin: 0, valign: "mid",
     fit: "shrink",
@@ -218,30 +153,30 @@ function addClosing(data) {
   });
   // Single student silhouette standing at the beginning of the path.
   slide.addShape("ellipse", {
-    x: 9.83, y: 4.32, w: 0.38, h: 0.38,
+    x: 10.34, y: 4.32, w: 0.38, h: 0.38,
     fill: { color: theme.colors.ink },
     line: { color: theme.colors.ink, transparency: 100 },
   });
   slide.addShape("roundRect", {
-    x: 9.77, y: 4.72, w: 0.50, h: 0.88,
+    x: 10.28, y: 4.72, w: 0.50, h: 0.88,
     rectRadius: 0.12,
     fill: { color: theme.colors.accent },
     line: { color: theme.colors.accent, transparency: 100 },
   });
   slide.addShape("line", {
-    x: 9.88, y: 5.52, w: -0.16, h: 0.47,
+    x: 10.39, y: 5.52, w: -0.16, h: 0.47,
     line: { color: theme.colors.ink, width: 2.4 },
   });
   slide.addShape("line", {
-    x: 10.16, y: 5.52, w: 0.16, h: 0.47,
+    x: 10.67, y: 5.52, w: 0.16, h: 0.47,
     line: { color: theme.colors.ink, width: 2.4 },
   });
   slide.addShape("line", {
-    x: 9.78, y: 4.86, w: -0.28, h: 0.35,
+    x: 10.29, y: 4.86, w: -0.28, h: 0.35,
     line: { color: theme.colors.ink, width: 2.1 },
   });
   slide.addShape("line", {
-    x: 10.26, y: 4.86, w: 0.27, h: -0.25,
+    x: 10.77, y: 4.86, w: 0.27, h: -0.25,
     line: { color: theme.colors.ink, width: 2.1 },
   });
 
