@@ -12,7 +12,6 @@ module.exports = {
       title: "3 Things I Wish I Knew When I Was Your Age",
       subtitle: "From a former Class 11 & 12 student",
       school: "St. Joseph Pre-University College, Bangalore",
-      visualPlaceholder: "Personal school-inspired visual",
     },
     {
       kind: "body",
